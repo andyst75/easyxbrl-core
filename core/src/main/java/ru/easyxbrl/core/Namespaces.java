@@ -57,6 +57,24 @@ public class Namespaces implements Serializable, DimensionDefault {
 
 
 	/**
+	 * Получаем элемент по {uri} name
+	 * @param uri
+	 * @param name
+	 * @return
+	 */
+	public XbrlElement getElementByName(String uri) {
+		if (uri.contains("} ")) {
+			String[] path = uri.split("} ");
+			return dictMapName.containsKey(path[0].substring(1)) ? dictMapName.get(path[0].substring(1)).get(path[1]) : null;
+		} else {
+			return null;
+		}
+	}
+
+	
+	
+	
+	/**
 	 * Получаем элемент по uri, id
 	 * @param uri
 	 * @param id
@@ -67,7 +85,7 @@ public class Namespaces implements Serializable, DimensionDefault {
 	}
 
 	/**
-	 * Получаем элемент по uri#id
+	 * Получаем элемент по uri#id или {uri} id
 	 * @param uri
 	 * @return - null, если элемент не найден
 	 */
