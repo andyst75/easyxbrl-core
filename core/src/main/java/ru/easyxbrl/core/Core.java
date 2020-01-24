@@ -37,7 +37,7 @@ public class Core implements Serializable {
 	/**
 	 * Версия данной сборки ядра таксономии 
 	 */
-	public static final String version = "20200130";
+	public static final String version = "20191007";
 	
 	/**
 	 * URL hyper-dimension
